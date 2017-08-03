@@ -1,0 +1,6 @@
+D:\LocalCode\mattUtility\async-await-test-2\bin\Debug\async-await-test-2.exe.config
+D:\LocalCode\mattUtility\async-await-test-2\bin\Debug\async-await-test-2.exe
+D:\LocalCode\mattUtility\async-await-test-2\bin\Debug\async-await-test-2.pdb
+D:\LocalCode\mattUtility\async-await-test-2\obj\Debug\async-await-test-2.csprojResolveAssemblyReference.cache
+D:\LocalCode\mattUtility\async-await-test-2\obj\Debug\async-await-test-2.exe
+D:\LocalCode\mattUtility\async-await-test-2\obj\Debug\async-await-test-2.pdb

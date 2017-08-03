@@ -1,0 +1,6 @@
+C:\Users\matth\OneDrive\Documents\GitHub\GenericsTest\GenericsTest\bin\Debug\GenericsTest.exe.config
+C:\Users\matth\OneDrive\Documents\GitHub\GenericsTest\GenericsTest\bin\Debug\GenericsTest.exe
+C:\Users\matth\OneDrive\Documents\GitHub\GenericsTest\GenericsTest\bin\Debug\GenericsTest.pdb
+C:\Users\matth\OneDrive\Documents\GitHub\GenericsTest\GenericsTest\obj\Debug\GenericsTest.csprojResolveAssemblyReference.cache
+C:\Users\matth\OneDrive\Documents\GitHub\GenericsTest\GenericsTest\obj\Debug\GenericsTest.exe
+C:\Users\matth\OneDrive\Documents\GitHub\GenericsTest\GenericsTest\obj\Debug\GenericsTest.pdb

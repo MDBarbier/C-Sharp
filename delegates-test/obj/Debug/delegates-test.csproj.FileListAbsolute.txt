@@ -1,0 +1,6 @@
+D:\LocalCode\mattUtility\delegates-test\bin\Debug\delegates-test.exe.config
+D:\LocalCode\mattUtility\delegates-test\bin\Debug\delegates-test.exe
+D:\LocalCode\mattUtility\delegates-test\bin\Debug\delegates-test.pdb
+D:\LocalCode\mattUtility\delegates-test\obj\Debug\delegates-test.csprojResolveAssemblyReference.cache
+D:\LocalCode\mattUtility\delegates-test\obj\Debug\delegates-test.exe
+D:\LocalCode\mattUtility\delegates-test\obj\Debug\delegates-test.pdb

@@ -1,0 +1,5 @@
+D:\LocalCode\mattUtility\singleton-test\bin\Debug\singleton-test.exe.config
+D:\LocalCode\mattUtility\singleton-test\bin\Debug\singleton-test.exe
+D:\LocalCode\mattUtility\singleton-test\bin\Debug\singleton-test.pdb
+D:\LocalCode\mattUtility\singleton-test\obj\Debug\singleton-test.exe
+D:\LocalCode\mattUtility\singleton-test\obj\Debug\singleton-test.pdb

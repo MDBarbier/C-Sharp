@@ -1,0 +1,6 @@
+D:\LocalCode\mattUtility\async-await-io-bound\bin\Debug\async-await-io-bound.exe.config
+D:\LocalCode\mattUtility\async-await-io-bound\bin\Debug\async-await-io-bound.exe
+D:\LocalCode\mattUtility\async-await-io-bound\bin\Debug\async-await-io-bound.pdb
+D:\LocalCode\mattUtility\async-await-io-bound\obj\Debug\async-await-io-bound.exe
+D:\LocalCode\mattUtility\async-await-io-bound\obj\Debug\async-await-io-bound.pdb
+D:\LocalCode\mattUtility\async-await-io-bound\obj\Debug\async-await-io-bound.csprojResolveAssemblyReference.cache
