@@ -1,0 +1,6 @@
+D:\LocalCode\mattUtility\reflection-demo\bin\Debug\reflection-demo.exe.config
+D:\LocalCode\mattUtility\reflection-demo\bin\Debug\reflection-demo.exe
+D:\LocalCode\mattUtility\reflection-demo\bin\Debug\reflection-demo.pdb
+D:\LocalCode\mattUtility\reflection-demo\obj\Debug\reflection-demo.csprojResolveAssemblyReference.cache
+D:\LocalCode\mattUtility\reflection-demo\obj\Debug\reflection-demo.exe
+D:\LocalCode\mattUtility\reflection-demo\obj\Debug\reflection-demo.pdb
