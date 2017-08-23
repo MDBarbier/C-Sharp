@@ -1,0 +1,6 @@
+C:\Users\matth\Documents\GitHub\C-Sharp\extension-method-demo\extensions\extensions\bin\Debug\extensions.exe.config
+C:\Users\matth\Documents\GitHub\C-Sharp\extension-method-demo\extensions\extensions\bin\Debug\extensions.exe
+C:\Users\matth\Documents\GitHub\C-Sharp\extension-method-demo\extensions\extensions\bin\Debug\extensions.pdb
+C:\Users\matth\Documents\GitHub\C-Sharp\extension-method-demo\extensions\extensions\obj\Debug\extensions.csprojResolveAssemblyReference.cache
+C:\Users\matth\Documents\GitHub\C-Sharp\extension-method-demo\extensions\extensions\obj\Debug\extensions.exe
+C:\Users\matth\Documents\GitHub\C-Sharp\extension-method-demo\extensions\extensions\obj\Debug\extensions.pdb
