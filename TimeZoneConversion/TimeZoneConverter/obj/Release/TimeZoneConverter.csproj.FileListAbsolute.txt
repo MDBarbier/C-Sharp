@@ -1,0 +1,6 @@
+E:\TFS\Tasks\TimeZoneConverter\bin\Release\TimeZoneConverter.dll
+E:\TFS\Tasks\TimeZoneConverter\bin\Release\TimeZoneConverter.pdb
+E:\TFS\Tasks\TimeZoneConverter\obj\Release\TimeZoneConverter.csprojResolveAssemblyReference.cache
+E:\TFS\Tasks\TimeZoneConverter\obj\Release\TimeZoneConverter.csproj.CoreCompileInputs.cache
+E:\TFS\Tasks\TimeZoneConverter\obj\Release\TimeZoneConverter.dll
+E:\TFS\Tasks\TimeZoneConverter\obj\Release\TimeZoneConverter.pdb

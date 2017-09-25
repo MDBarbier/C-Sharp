@@ -1,0 +1,9 @@
+D:\LocalCode\ConsoleApp12\ConsoleApp12\bin\Debug\ConsoleApp12.exe.config
+D:\LocalCode\ConsoleApp12\ConsoleApp12\bin\Debug\ConsoleApp12.exe
+D:\LocalCode\ConsoleApp12\ConsoleApp12\bin\Debug\ConsoleApp12.pdb
+D:\LocalCode\ConsoleApp12\ConsoleApp12\bin\Debug\TimeZoneConverter.dll
+D:\LocalCode\ConsoleApp12\ConsoleApp12\bin\Debug\TimeZoneConverter.pdb
+D:\LocalCode\ConsoleApp12\ConsoleApp12\obj\Debug\ConsoleApp12.csprojResolveAssemblyReference.cache
+D:\LocalCode\ConsoleApp12\ConsoleApp12\obj\Debug\ConsoleApp12.csproj.CoreCompileInputs.cache
+D:\LocalCode\ConsoleApp12\ConsoleApp12\obj\Debug\ConsoleApp12.exe
+D:\LocalCode\ConsoleApp12\ConsoleApp12\obj\Debug\ConsoleApp12.pdb
