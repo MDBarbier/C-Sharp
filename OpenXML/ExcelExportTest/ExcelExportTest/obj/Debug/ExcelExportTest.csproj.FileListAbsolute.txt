@@ -1,0 +1,11 @@
+D:\LocalCode\ExcelExportTest\ExcelExportTest\bin\Debug\ExcelExportTest.exe.config
+D:\LocalCode\ExcelExportTest\ExcelExportTest\bin\Debug\ExcelExportTest.exe
+D:\LocalCode\ExcelExportTest\ExcelExportTest\bin\Debug\ExcelExportTest.pdb
+D:\LocalCode\ExcelExportTest\ExcelExportTest\bin\Debug\DocumentFormat.OpenXml.dll
+D:\LocalCode\ExcelExportTest\ExcelExportTest\bin\Debug\System.IO.FileSystem.Primitives.dll
+D:\LocalCode\ExcelExportTest\ExcelExportTest\bin\Debug\System.IO.Packaging.dll
+D:\LocalCode\ExcelExportTest\ExcelExportTest\bin\Debug\DocumentFormat.OpenXml.xml
+D:\LocalCode\ExcelExportTest\ExcelExportTest\obj\Debug\ExcelExportTest.csprojResolveAssemblyReference.cache
+D:\LocalCode\ExcelExportTest\ExcelExportTest\obj\Debug\ExcelExportTest.csproj.CoreCompileInputs.cache
+D:\LocalCode\ExcelExportTest\ExcelExportTest\obj\Debug\ExcelExportTest.exe
+D:\LocalCode\ExcelExportTest\ExcelExportTest\obj\Debug\ExcelExportTest.pdb
