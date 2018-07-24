@@ -18,6 +18,7 @@ namespace parallel_foreach_test
             List<string> data = new List<string>();
             List<string> finalData = new List<string>();
             int counter = 0;
+            ReaderWriterLockSlim _locker = new ReaderWriterLockSlim();
 
             Parallel.For(0, 10_000_000, i => {
                 lock (data)
@@ -28,8 +29,17 @@ namespace parallel_foreach_test
 
             Parallel.ForEach(data, new ParallelOptions { MaxDegreeOfParallelism = 5 }, item => 
             {
-                //Interlocked.Increment(ref counter);                
-                counter++;
+                Interlocked.Increment(ref counter); /* this is a thread safe way to increment */
+
+                /* This is the the other way to safely increment the counter:
+                 * 
+                 * lock (_locker) {
+                 *      counter++;
+                 * }
+                 * 
+                 * */
+
+                //counter++; /* this method is non thread safe and will leave the counter with about 0.14% less than the full amount by the end */
 
                 lock (finalData)
                 {
