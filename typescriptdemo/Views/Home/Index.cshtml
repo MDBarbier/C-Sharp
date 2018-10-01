@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "TS Test";
+}
+
+<h1 class="jumbotron">Typescript </h1>
+
+<p>TypeScript is a superset of JavaScript and adds many useful features to vanilla javascript, making it much more like C# or Java. It was initially developed by Microsoft.</p>
+
+
+
+<p>Most of these cool features are part of the later iterations of JavaScript, i.e. ECMA6.</p>
+
+
+
+<p>You cannot write in ES2016 (aka ECMA6) directly in a .NET project because it won't be understood.</p>
+
+
+
+<p> way to use these features is via TypeScript, which is part of VS2017 as standard.</p>
+
+
+<p>TypeScript compiles automatically to vanilla javascript when saved, and therefore can run anywhere that can run vanilla JS. The caveat to this is you have to target the right version.</p>
+
+
+
+
+<h4>Steps to use TypeScript in a .NET MVC project:</h4>
+
+<ol>
+    <li>Add a "TypeScript" folder within your "Scripts" folder (optional, but helps organisation)</li>
+    <li>Right click the TypeScript folder and click "add > add new item"</li>
+    <li>Find "TypeScript JSON Configuration file" in the list and add it. Leave the name as the default (unless you need more than one for some reason).</li>
+    <li>look at the tsconfig.json and notice the "target" value</li>
+    <li>If you are wanting your app to be usable in IE11 (i.e. from a Windows 7 client) then you need to change the targeted version to "es5". This is telling the compiler to compiled any typescript you write into a vanilla JS file that will be understood by anything that can understand ECMA2015/ES5 (inc IE11)</li>
+    <li>Save the tsconfig.json and build your app</li>
+    <li>Right click your "TypeScript" folder and add new item again, and add a TypeScript file (.ts), called whatever you want.</li>
+    <li>Add a line to the .ts file e.g. alert("hello world"); and save the file, and build your project.</li>
+    <li>Click the "show all files" button in the solution explorer</li>
+    <li>Notice that you now have a .js file with the same name as your .ts file, and also a .js.map file with the same name</li>
+    <li>Include the .js file (not the .ts file) in your view or _layout wherever you need it</li>
+    <li>When you run the code and want to debug it, open up Chrome dev tools</li>
+    <li>Open the network tab and locate the js script, right click and select "view in sources"</li>
+    <li>When you view the js file in the sources, it should say there is a source map associated with it. Hit Ctrl + P to view.</li>
+    <li>When you view the source map it shows you that it is mapping back to the ts file</li>
+    <li>You can put break points etc in the TS file and it will work because of the map</li>
+</ol>
+
+<div id="changeMe" class="well">Initial text</div>
