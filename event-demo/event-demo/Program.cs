@@ -46,21 +46,10 @@ namespace eventdemo
         }
     }
 
+    //This class contains a simple auto-prop which represents the current time
     public class TimeOfTick : EventArgs
     {
-        private DateTime TimeNow;
-
-        public DateTime Time
-        {
-            set
-            {
-                TimeNow = value;
-            }
-            get
-            {
-                return this.TimeNow;
-            }
-        }
+        public DateTime Time { set; get; }
     }
 
     public class Listener
@@ -88,6 +77,9 @@ namespace eventdemo
             //This method is part of the listener rather than the metronome - because of the delegate and the fact HeardIt has the same signature as the Delegate so works
             m.Tick += new Metronome2.TickHandler(HeardIt);
         }
+
+        //The actual handler which performs an action when the event fires
+        //NB TimeOfTick could be replaced with datetime
         private void HeardIt(Metronome2 m, TimeOfTick e)
         {
             System.Console.WriteLine("HEARD IT AT " + e.Time);
