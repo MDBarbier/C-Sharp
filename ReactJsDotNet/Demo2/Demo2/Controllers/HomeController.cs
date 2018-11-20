@@ -18,24 +18,25 @@ namespace Demo2.Controllers
             {
                 new GameModel
                 {
+                    Id = 1,
                     Name = "Skyrim",
                     Price = 19.99M,
-                    Genre = "RPG",
-                    Rating = 9
+                    Genre = "RPG"
                 },
                 new GameModel
                 {
+                    Id = 2,
                     Name = "Life is strange",
                     Price = 9.99M,
-                    Genre = "Point and click",
-                    Rating = 8
+                    Genre = "Point and click"
                 },
                 new GameModel
                 {
+                    Id = 3,
                     Name = "Total War Warhammer",
                     Price = 7.99M,
-                    Genre = "Strategy",
-                    Rating = 9
+                    Genre = "Strategy"
+                    
                 }
             };
 
@@ -51,5 +52,16 @@ namespace Demo2.Controllers
         {
             return Json(_games);
         }
+
+        [Route("games/new")]
+        [HttpPost]
+        public ActionResult AddComment(GameModel game)
+        {
+            // Create an ID for this comment
+            game.Id = _games.Count + 1;
+            _games.Add(game);
+            return Content("Success :)");
+        }
+
     }
 }
