@@ -1,4 +1,7 @@
-﻿@{
+﻿@model IEnumerable<Demo2.Models.GameModel>
+@using React.AspNet
+
+@{
     Layout = null;
 }
 <html>
@@ -6,13 +9,33 @@
     <title>Games Played List</title>
 </head>
 <body>
-    <div id="content"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.0/umd/react.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.0/umd/react-dom.development.js"></script>
+
+    <div id="content" class="container-fluid"></div>
+
+    <!-- These scripts are for development-->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- These scripts are for production-->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/js/GameItem.jsx")"></script>
     <script src="@Url.Content("~/js/GameForm.jsx")"></script>
     <script src="@Url.Content("~/js/GameList.jsx")"></script>
     <script src="@Url.Content("~/js/GameWidget.jsx")"></script>
+
+    @Html.React("GameWidget", new {
+       initialData = Model,
+       url = Url.Action("Games"),
+       submitUrl = Url.Action("AddGame"),
+       pollInterval = 10000,
+   })
+    @Html.ReactInitJavaScript()
 
 </body>
 </html>

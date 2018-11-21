@@ -43,19 +43,19 @@ namespace Demo2.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_games);            
         }
 
         [Route("games")]
         [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
-        public ActionResult Comments()
+        public ActionResult Games()
         {
             return Json(_games);
         }
 
         [Route("games/new")]
         [HttpPost]
-        public ActionResult AddComment(GameModel game)
+        public ActionResult AddGame(GameModel game)
         {
             // Create an ID for this comment
             game.Id = _games.Count + 1;

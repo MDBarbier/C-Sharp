@@ -12,7 +12,7 @@
 class GameWidget extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { data: [] };
+        this.state = { data: this.props.initialData };                
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentDidMount() {
@@ -20,7 +20,7 @@ class GameWidget extends React.Component {
         window.setInterval(
             () => this.loadGamesFromServer(),
             this.props.pollInterval,
-        );
+        );        
     }
     loadGamesFromServer() {
         const xhr = new XMLHttpRequest();
@@ -28,6 +28,7 @@ class GameWidget extends React.Component {
         xhr.onload = () => {
             const data = JSON.parse(xhr.responseText);            
             this.setState({ data: data });
+            console.log("Data loaded from server successfully at " + Date())
         };
         xhr.send();        
     }  
@@ -45,7 +46,7 @@ class GameWidget extends React.Component {
     }
     render() {
         return (
-            <div className="gameWidget">This is the Game widget
+            <div className="gameWidget"><div className="jumbotron"><h1>Games I'm playing atm</h1></div>
                 <GameList data={this.state.data} />
                 <GameForm onGameSubmit={this.handleSubmit} />
             </div>                      
@@ -53,4 +54,4 @@ class GameWidget extends React.Component {
     }
 }
 
-ReactDOM.render(<GameWidget url="/games" submitUrl="/games/new" pollInterval="10000" />, document.getElementById('content'));
+//ReactDOM.render(<GameWidget url="/games" submitUrl="/games/new" pollInterval="10000" />, document.getElementById('content'));

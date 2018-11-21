@@ -4,7 +4,7 @@ class GameItem extends React.Component {
     render() {
         return (
             <div className="game">
-                <h2 className="gameTitle">{this.props.name}</h2>                
+                <h3 className="gameTitle">{this.props.name}</h3>                
                 <p>Price: £{this.props.price}</p>
                 <p>Genre: {this.props.genre}</p>
             </div>
