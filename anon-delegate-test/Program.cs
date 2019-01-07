@@ -16,17 +16,17 @@ namespace anon_delegate_test
         {
             int variable = 100;
 
-            someProcs += new Procedure(delegate
+            someProcs += new Procedure(delegate //adds another anon delegated method to our Delegate
             {
                 Console.WriteLine(variable);
-            });
+            });            
         }
 
         static void Main()
         {
-            someProcs += new Procedure(delegate { Console.WriteLine("test"); });
-            AddProc();
-            someProcs();
+            someProcs += new Procedure(delegate { Console.WriteLine("test"); }); //This adds the anon delegated method to our Delegate (note it does not execute yet)
+            AddProc(); //this calls AddProc method
+            someProcs(); //calls our Delegate which actually executes both the anon delegated methods we have previously assigned.
             Console.ReadKey();
         }
     }
