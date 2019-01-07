@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "delegates-test", "delegates
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "anon-delegate-test", "..\anon-delegate-test\anon-delegate-test.csproj", "{F14D7CB1-B5B6-4EDE-95E6-1943740F40E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eventdemo", "eventdemo\eventdemo.csproj", "{1789F670-B14A-49A8-B659-134FD71C4CE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F14D7CB1-B5B6-4EDE-95E6-1943740F40E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F14D7CB1-B5B6-4EDE-95E6-1943740F40E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F14D7CB1-B5B6-4EDE-95E6-1943740F40E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1789F670-B14A-49A8-B659-134FD71C4CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1789F670-B14A-49A8-B659-134FD71C4CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1789F670-B14A-49A8-B659-134FD71C4CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1789F670-B14A-49A8-B659-134FD71C4CE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
