@@ -12,6 +12,7 @@ namespace singleton_test
         {
             try
             {
+                //These two references are actually both pointing at the same singleton
                 singleton_test.Singleton i = singleton_test.Singleton.Instance;
                 singleton_test.Singleton j = singleton_test.Singleton.Instance;
 
@@ -20,6 +21,8 @@ namespace singleton_test
                 j.Message = "Bye world!";
 
                 Console.WriteLine("Setting message via j reference...");
+
+                //the message would have been updated for both i and j
                 Console.WriteLine($"updated i message: { i.Message}, updated j message: {j.Message}");
             }
             catch (Exception ex)

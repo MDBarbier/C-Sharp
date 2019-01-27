@@ -3,3 +3,10 @@ D:\LocalCode\mattUtility\singleton-test\bin\Debug\singleton-test.exe
 D:\LocalCode\mattUtility\singleton-test\bin\Debug\singleton-test.pdb
 D:\LocalCode\mattUtility\singleton-test\obj\Debug\singleton-test.exe
 D:\LocalCode\mattUtility\singleton-test\obj\Debug\singleton-test.pdb
+C:\Users\matt\Documents\GitHub\C-Sharp\singleton-demo\singleton-test\bin\Debug\singleton-test.exe.config
+C:\Users\matt\Documents\GitHub\C-Sharp\singleton-demo\singleton-test\bin\Debug\singleton-test.exe
+C:\Users\matt\Documents\GitHub\C-Sharp\singleton-demo\singleton-test\bin\Debug\singleton-test.pdb
+C:\Users\matt\Documents\GitHub\C-Sharp\singleton-demo\singleton-test\obj\Debug\singleton-test.csprojAssemblyReference.cache
+C:\Users\matt\Documents\GitHub\C-Sharp\singleton-demo\singleton-test\obj\Debug\singleton-test.csproj.CoreCompileInputs.cache
+C:\Users\matt\Documents\GitHub\C-Sharp\singleton-demo\singleton-test\obj\Debug\singleton-test.exe
+C:\Users\matt\Documents\GitHub\C-Sharp\singleton-demo\singleton-test\obj\Debug\singleton-test.pdb
