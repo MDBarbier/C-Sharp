@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using System.Diagnostics;
 
-namespace specflow_parallel_test.steps
+namespace specflow_parallel_test_2.steps
 {
     [Binding]
     [Parallelizable]
@@ -19,7 +19,7 @@ namespace specflow_parallel_test.steps
         public void GivenIHaveAMessageOf(string p0)
         {
             c.Scenario = TestContext.CurrentContext.Test.Name;
-            c.Message = p0;            
+            c.Message = p0;
         }
 
         [When(@"I process message")]
@@ -62,7 +62,7 @@ namespace specflow_parallel_test.steps
         [AfterScenario("testScenario")]
         internal void AfterScenario()
         {            
-            Console.WriteLine("^^^^^^^^^^^^^^^^ After scenario " + c.Scenario);
+            Console.WriteLine($"^^^^^^^^^^^^^^^^ After scenario: {c.Scenario}, Message: {c.Message}");
         }
     }
 
