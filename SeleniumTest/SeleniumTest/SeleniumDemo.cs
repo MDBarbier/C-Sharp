@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumTest
 {
@@ -76,6 +77,26 @@ namespace SeleniumTest
                     link.Click();
             }
             Assert.IsTrue(driver.Url == "https://www.google.com/doodles");
+        }
+
+        [Test]
+        public void ExecuteJavaScript()
+        {
+            this.driver.Navigate().GoToUrl(@"https://www.google.co.uk");
+            this.WaitUntilLoaded();
+            IJavaScriptExecutor js = driver as IJavaScriptExecutor;
+            string title = (string)js.ExecuteScript("return document.title");
+            Assert.IsTrue(title == "Google");
+        }
+
+        private void WaitUntilLoaded()
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            wait.Until((x) =>
+            {
+                return ((IJavaScriptExecutor)this.driver)
+                .ExecuteScript("return document.readyState").Equals("complete");
+            });
         }
 
         [TearDown]
