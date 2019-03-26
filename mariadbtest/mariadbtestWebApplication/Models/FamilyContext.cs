@@ -31,8 +31,9 @@ namespace mariadbtestWebApplication.Models
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                //MySqlCommand cmd = new MySqlCommand("select * from test_table", conn);
-                MySqlCommand cmd = new MySqlCommand("select * from testtable1", conn);
+                MySqlCommand cmd;
+                
+                cmd = new MySqlCommand("select * from testtable1", conn);
 
                 using (var reader = cmd.ExecuteReader())
                 {
