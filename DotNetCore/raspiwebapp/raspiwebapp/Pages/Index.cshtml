@@ -6,5 +6,15 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome, traveller</h1>
-    <p>This web application is being hosted on @ViewBag.Hostname and is running @ViewBag.Version</p>
+    <p>This web application is running on @ViewBag.Version</p>
+    <p>The server @ViewBag.Hostname which is hosting this application is running @ViewBag.OSVersion</p>
+    @if ((bool)ViewBag.SixtyFourBit)
+    {
+        <p>The OS is 64 bit.</p>
+    }
+
+    @if (!(bool)ViewBag.SixtyFourBit)
+    {
+        <p>The OS is 32 bit.</p>
+    }
 </div>

@@ -20,6 +20,8 @@ namespace raspiwebapp.Pages
 
             ViewData["Version"] = framework;
             ViewData["Hostname"] = Dns.GetHostName();
+            ViewData["OSVersion"] = Environment.OSVersion;
+            ViewData["SixtyFourBit"] = Environment.Is64BitOperatingSystem;
         }
     }
 }
