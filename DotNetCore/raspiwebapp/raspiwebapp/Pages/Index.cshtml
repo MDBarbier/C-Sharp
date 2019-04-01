@@ -17,4 +17,14 @@
     {
         <p>The OS is 32 bit.</p>
     }
+
+    @if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <H3>@ViewBag.Error</H3>
+    }
+
+    @if (!string.IsNullOrEmpty(ViewBag.Temp))
+    {
+        <p>The server's core temperature is @ViewBag.Temp</p>
+    }
 </div>
