@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueJsTest", "VueJsTest\VueJsTest.csproj", "{489481A7-D285-4E44-B083-851839B7BBCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instructions", "Instructions", "{F11838DB-EBA4-4721-84B9-9EE9FD175823}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Users\matt\Desktop\instructions.pdf = ..\..\Users\matt\Desktop\instructions.pdf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{489481A7-D285-4E44-B083-851839B7BBCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489481A7-D285-4E44-B083-851839B7BBCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489481A7-D285-4E44-B083-851839B7BBCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489481A7-D285-4E44-B083-851839B7BBCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {676EF863-AFC5-4B8F-A9DF-76F227B8EE8B}
+	EndGlobalSection
+EndGlobal
