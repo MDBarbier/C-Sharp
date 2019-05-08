@@ -12,7 +12,11 @@ namespace asyncawait
         static async Task Main(string[] args)
         {
             //await Work(); //if you want to wait for the answer before proceeding you use this syntax
-            Work();
+            //Work(); This will let execution continue but it's not how async should be used.
+
+            await Task.Run(() => Work()); //This pushes the execution of Work() onto another thread
+            //_ = Task.Run(() => Work()); //This pushes the execution of Work() onto another thread and does not wait for a reply, using a "discard"
+
             Console.WriteLine("Execution finished");
             Console.ReadLine();
         }
