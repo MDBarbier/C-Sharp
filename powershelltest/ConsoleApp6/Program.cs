@@ -16,11 +16,15 @@ namespace ConsoleApp6
             {
                 // use "AddScript" to add the contents of a script file to the end of the execution pipeline.
                 // use "AddCommand" to add individual commands/cmdlets to the end of the execution pipeline.
-                PowerShellInstance.AddScript("param($param1) $d = get-date; $s = 'test string value'; " +
-                        "$d; $s; $param1; get-service");
+                //PowerShellInstance.AddScript("param($param1) $d = get-date; $s = 'test string value'; " +
+                //      "$d; $s; $param1; get-service");
+                PowerShellInstance.AddScript("param($param1,$param2); $param1; $param2");
+                //PowerShellInstance.AddScript("$param1");
+
 
                 // use "AddParameter" to add a single parameter to the last command/script on the pipeline.
                 PowerShellInstance.AddParameter("param1", "parameter 1 value!");
+                PowerShellInstance.AddParameter("param2", "parameter 2 value!");
 
                 // invoke execution on the pipeline (collecting output)
                 Collection<PSObject> PSOutput = PowerShellInstance.Invoke();
@@ -48,7 +52,7 @@ namespace ConsoleApp6
                         {
                             Console.WriteLine("Output item: " + outputItem.ToString());
                         }
-                        
+
                     }
                 }
             }
