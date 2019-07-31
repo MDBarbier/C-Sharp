@@ -29,6 +29,7 @@ namespace KeyGenerator
 
             base64encodedHash = Base64Encode(hash);
 
+            Console.WriteLine($"Sub id format:         {input.Replace("-","")}");
             Console.WriteLine($"Base input:            {input}");
             Console.WriteLine($"Hashed input:          {hash}");
             Console.WriteLine($"Base64 encoded hash:   {base64encodedHash}");
