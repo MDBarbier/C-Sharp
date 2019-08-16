@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeneratorLib;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -8,8 +9,6 @@ namespace KeyGenerator
     {
         static void Main(string[] args)
         {
-
-
             Console.WriteLine("Welcome to the KeyGenerator\n\n");
 
             GenerateAndProcessKeys();
@@ -57,9 +56,9 @@ namespace KeyGenerator
                 input = guid.ToString();
             }
 
-            hash = ComputeSha256Hash(input);
+            hash = GenerationUtilities.ComputeSha256Hash(input);
 
-            base64encodedHash = Base64Encode(hash);
+            base64encodedHash = GenerationUtilities.Base64Encode(hash);
 
             Console.WriteLine($"Sub id format:         {input.Replace("-", "")}");
             Console.WriteLine($"Base input:            {input}");
@@ -67,34 +66,6 @@ namespace KeyGenerator
             Console.WriteLine($"Base64 encoded hash:   {base64encodedHash}");
         }
 
-        static string ComputeSha256Hash(string rawData)
-        {
-            // Create a SHA256   
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-
-                // Convert byte array to a string   
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
-
-        public static string Base64Encode(string plainText)
-        {
-            var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
-            return Convert.ToBase64String(plainTextBytes);
-        }
-
-        public static string Base64Decode(string base64EncodedData)
-        {
-            var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
-            return Encoding.UTF8.GetString(base64EncodedBytes);
-        }
+        
     }
 }
