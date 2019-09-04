@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConditionalJsonDemo", "ConditionalJsonDemo\ConditionalJsonDemo.csproj", "{91320FCC-324F-4F76-AC13-377B154AFF8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91320FCC-324F-4F76-AC13-377B154AFF8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91320FCC-324F-4F76-AC13-377B154AFF8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91320FCC-324F-4F76-AC13-377B154AFF8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91320FCC-324F-4F76-AC13-377B154AFF8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAEAB21E-218C-4FC7-AF61-A3298B83028F}
+	EndGlobalSection
+EndGlobal
