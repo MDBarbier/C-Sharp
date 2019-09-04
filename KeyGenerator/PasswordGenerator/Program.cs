@@ -9,31 +9,34 @@ namespace PasswordGenerator
         {
             Console.WriteLine("Welcome to the PasswordGenerator\n\n");
 
-            ControlLogic();
+            ControlLogic(0, true);
 
             Console.WriteLine("Execution finished, press any key to exit");
             Console.ReadKey();
         }
 
-        private static void ControlLogic()
+        private static void ControlLogic(int length, bool includeSymbols)
         {
-            bool includeSymbols = true;
-            int length = 0;
+            includeSymbols = true;            
+            string symbolsReply = "";
 
-            Console.WriteLine($"\n\nEnter a length for your password: ");
-
-            while (int.TryParse(Console.ReadLine(), out length) != true)
+            if (length == 0)
             {
-                Console.WriteLine($"\n\nInvalid number entered. Enter a length for your password: ");
-            }
+                Console.WriteLine($"\n\nEnter a length for your password: ");
 
-            Console.WriteLine($"\n\nDo you want to include symbols in your password? (y/n)");
+                while (int.TryParse(Console.ReadLine(), out length) != true)
+                {
+                    Console.WriteLine($"\n\nInvalid number entered. Enter a length for your password: ");
+                }
 
-            var symbolsReply = Console.ReadLine();
+                Console.WriteLine($"\n\nDo you want to include symbols in your password? (y/n)");
 
-            while (!symbolsReply.Equals("y") && symbolsReply.Equals("Y") && !symbolsReply.Equals("n") && !symbolsReply.Equals("y") && !symbolsReply.Equals(""))
-            {
-                Console.WriteLine("\n\nInvalid response, answer (y/n):");
+                symbolsReply = Console.ReadLine();
+
+                while (!symbolsReply.Equals("y") && symbolsReply.Equals("Y") && !symbolsReply.Equals("n") && !symbolsReply.Equals("y") && !symbolsReply.Equals(""))
+                {
+                    Console.WriteLine("\n\nInvalid response, answer (y/n):");
+                } 
             }
 
             includeSymbols = symbolsReply.Equals("y") || symbolsReply.Equals("Y") || symbolsReply.Equals("") ? true : false;
@@ -46,13 +49,17 @@ namespace PasswordGenerator
             string controlResponse = "y";
             while (controlResponse == "y")
             {
-                Console.WriteLine($"\n\nDo you want to generate another password? (y/n)");
+                Console.WriteLine($"\n\nDo you want to generate another password or the (s)ame password? (y/n/s)");
 
                 controlResponse = Console.ReadLine();
 
                 if (controlResponse == "y")
                 {
-                    ControlLogic();
+                    ControlLogic(0, true);
+                }
+                else if (controlResponse == "s")
+                {
+                    ControlLogic(length, includeSymbols);
                 }
                 else
                 {
