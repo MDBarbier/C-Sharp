@@ -5,17 +5,19 @@ namespace PasswordGenerator
 {
     class Program
     {
+        public bool IncludeSymbols { get; set; }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the PasswordGenerator\n\n");
 
-            ControlLogic(0, true);
+            ControlLogic(0, null);
 
             Console.WriteLine("Execution finished, press any key to exit");
             Console.ReadKey();
         }
 
-        private static void ControlLogic(int length, bool includeSymbols)
+        private static void ControlLogic(int length, bool? includeSymbols)
         {
             string symbolsReply = "";
 
@@ -26,8 +28,11 @@ namespace PasswordGenerator
                 while (int.TryParse(Console.ReadLine(), out length) != true)
                 {
                     Console.WriteLine($"\n\nInvalid number entered. Enter a length for your password: ");
-                }
+                }                
+            }
 
+            if (includeSymbols == null)
+            {
                 Console.WriteLine($"\n\nDo you want to include symbols in your password? (y/n)");
 
                 symbolsReply = Console.ReadLine();
@@ -36,14 +41,17 @@ namespace PasswordGenerator
                 {
                     Console.WriteLine("\n\nInvalid response, answer (y/n):");
                 }
-            }
 
-            includeSymbols = symbolsReply.Equals("y") || symbolsReply.Equals("Y");
+                includeSymbols = symbolsReply.Equals("y") || symbolsReply.Equals("Y");
+
+                if (includeSymbols == null)
+                    includeSymbols = false;
+            }            
 
             //set minimum length to 8
             length = length < 8 ? 8 : length;
-
-            Console.WriteLine($"\n\nYour password is: \n\n{GenerationUtilities.GeneratePassword(length, includeSymbols)}");
+            
+            Console.WriteLine($"\n\nYour password is: \n\n{GenerationUtilities.GeneratePassword(length, (bool)includeSymbols)}");
 
             string controlResponse = "y";
 
@@ -53,7 +61,7 @@ namespace PasswordGenerator
 
             if (controlResponse == "y")
             {
-                ControlLogic(0, true);
+                ControlLogic(0, null);
             }
             else if (controlResponse == "s")
             {
