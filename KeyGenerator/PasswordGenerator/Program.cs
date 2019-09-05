@@ -17,7 +17,6 @@ namespace PasswordGenerator
 
         private static void ControlLogic(int length, bool includeSymbols)
         {
-            includeSymbols = true;            
             string symbolsReply = "";
 
             if (length == 0)
@@ -36,10 +35,10 @@ namespace PasswordGenerator
                 while (!symbolsReply.Equals("y") && symbolsReply.Equals("Y") && !symbolsReply.Equals("n") && !symbolsReply.Equals("y") && !symbolsReply.Equals(""))
                 {
                     Console.WriteLine("\n\nInvalid response, answer (y/n):");
-                } 
+                }
             }
 
-            includeSymbols = symbolsReply.Equals("y") || symbolsReply.Equals("Y") || symbolsReply.Equals("") ? true : false;
+            includeSymbols = symbolsReply.Equals("y") || symbolsReply.Equals("Y");
 
             //set minimum length to 8
             length = length < 8 ? 8 : length;
@@ -47,26 +46,25 @@ namespace PasswordGenerator
             Console.WriteLine($"\n\nYour password is: \n\n{GenerationUtilities.GeneratePassword(length, includeSymbols)}");
 
             string controlResponse = "y";
-            while (controlResponse == "y")
+
+            Console.WriteLine($"\n\nDo you want to generate another password or the (s)ame password? (y/n/s)");
+
+            controlResponse = Console.ReadLine();
+
+            if (controlResponse == "y")
             {
-                Console.WriteLine($"\n\nDo you want to generate another password or the (s)ame password? (y/n/s)");
-
-                controlResponse = Console.ReadLine();
-
-                if (controlResponse == "y")
-                {
-                    ControlLogic(0, true);
-                }
-                else if (controlResponse == "s")
-                {
-                    ControlLogic(length, includeSymbols);
-                }
-                else
-                {
-                    Console.WriteLine("Reply not 'y', exiting");
-                }
+                ControlLogic(0, true);
             }
-        }       
-        
+            else if (controlResponse == "s")
+            {
+                ControlLogic(length, includeSymbols);
+            }
+            else
+            {
+                Console.WriteLine("Reply not 'y', exiting");
+            }
+
+        }
+
     }
 }
