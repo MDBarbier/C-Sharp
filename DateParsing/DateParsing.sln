@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateParsing", "DateParsing\DateParsing.csproj", "{CD5072EC-6BD0-4022-ACFE-526AC4C1F754}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD5072EC-6BD0-4022-ACFE-526AC4C1F754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD5072EC-6BD0-4022-ACFE-526AC4C1F754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD5072EC-6BD0-4022-ACFE-526AC4C1F754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD5072EC-6BD0-4022-ACFE-526AC4C1F754}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA3F15CD-6911-4E95-A0E1-20CC32724E2E}
+	EndGlobalSection
+EndGlobal
