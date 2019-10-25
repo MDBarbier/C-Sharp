@@ -8,6 +8,26 @@ namespace DateParsing
     {
         static void Main(string[] args)
         {
+            //Test1();
+
+            string date = "2012-08-16T19:20:30.456+08:00";
+            string[] parts = date.Split('+');
+
+            var result = DateTime.TryParse(parts[0], out DateTime parseResult);
+
+            if (result)
+            {
+                Console.WriteLine($"The parsed date is {parseResult}"); 
+            }
+            else
+            {
+                Console.WriteLine("Error parsing.");
+            }
+            Console.ReadLine();
+        }
+
+        private static void Test1()
+        {
             string weirdDate = "31:12:2019 00:00:00";
             string weirdDate2 = "31!12!2019 00!00!00";
             string weirdDate3 = "31|12|201900|00|00";
