@@ -119,6 +119,32 @@ namespace XUnitTestProject1
 
             output.WriteLine(textToOutput);
         }
+
+        [Fact]
+        public void TestStub()
+        {
+            // Create the mock
+            var mock = new Mock<IMagicCard>();
+
+            // start "tracking" sets/gets to this property
+            mock.SetupProperty(f => f.Name);
+
+            //This would stub all properties on the mock
+            //mock.SetupAllProperties();
+
+            // alternatively, provide a default value for the stubbed property
+            mock.SetupProperty(f => f.Name, "foo");
+            
+            // Now you can do:
+            IMagicCard foo = mock.Object;
+
+            // Initial value was stored
+            Assert.Equal("foo", foo.Name);
+
+            // New value set which changes the initial value
+            foo.Name = "bar";
+            Assert.Equal("bar", foo.Name);
+        }
     }
 
     public class MagicCardTestData : IEnumerable<object[]>
