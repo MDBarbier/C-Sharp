@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClientProject
 {
-    class MagicCard1 : IMagicCard
+    public class MagicCard1 : IMagicCard
     {
         public int IdCode { get; set; }
         public string Name { get; set; }
