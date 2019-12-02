@@ -1,16 +1,11 @@
 using System;
 using Xunit;
+using RockPaperScissorsGame;
 
-namespace RockPaperScissors
+namespace RockPaperScissorsTests
 {
     public class RockPaperScissorsTests
     {
-        private int playerOneScore = 0;
-        private int playerTwoScore = 0;
-        private int gameStatus = 0;
-
-        //public bool GameState { get; private set; }
-
         [Fact]
         public void TestRockBeatsScissors()
         {
@@ -56,51 +51,49 @@ namespace RockPaperScissors
         [Fact]
         public void TestAssignWinIncrementsPlayerOneScore()
         {
-            var score = playerOneScore;
-            IncrementScore(1);
-            Assert.True(score +1 == playerOneScore);
-        }
-
-        private void IncrementScore(int playerNumber)
-        {
-            if(playerNumber ==1)
-            {
-                playerOneScore++;
-            }
-            else
-            {
-                playerTwoScore++;
-            }
-        }
+            RockPaperScissors rps = new RockPaperScissors();
+            var score = rps.GetPlayerScore(1);
+            rps.IncrementScore(1);
+            Assert.True(score +1 == rps.GetPlayerScore(1));
+        }        
 
         [Fact]
         public void TestAssignWinIncrementsPlayerTwoScore()
         {
-            int score = playerTwoScore;
-            IncrementScore(playerTwoScore);
-            Assert.True(playerTwoScore == score+1);
+            RockPaperScissors rps = new RockPaperScissors();
+            var score = rps.GetPlayerScore(2);
+            rps.IncrementScore(1);
+            Assert.True(score + 1 == rps.GetPlayerScore(1));
         }
 
         [Fact]
         public void TestGameWonShouldBeNoWinner()
         {
+            RockPaperScissors rps = new RockPaperScissors();
             GameWinner();
-            Assert.True(gameStatus == 0);
+            Assert.True(rps.GetGameStatus() == 0);
+        }
+
+        [Fact]
+        public void TestOutcomeIsDrawIfChoicesSame()
+        {
+            Assert.True(Outcome.Draw == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
         }
 
         private void GameWinner()
         {
-            if (playerOneScore >= 2)
+            RockPaperScissors rps = new RockPaperScissors();
+            if (rps.GetPlayerScore(1) >= 2)
             {
-                gameStatus = 1;
+                rps.SetGameStatus(1);
             }
-            else if (playerTwoScore >= 2)
+            else if (rps.GetPlayerScore(2) >= 2)
             {
-                gameStatus= 2;
+                rps.SetGameStatus(1);
             }
             else
             {
-                gameStatus= 0;
+                rps.SetGameStatus(0);
             }
         }
 
@@ -114,8 +107,8 @@ namespace RockPaperScissors
                     else if (choice2 == ChoiceType.Paper)
                         return Outcome.Loss;
                     else
-                        return Outcome.Draw;            
-                    
+                        return Outcome.Draw;
+
                 case ChoiceType.Paper:
                     if (choice2 == ChoiceType.Rock)
                         return Outcome.Win;
@@ -130,18 +123,11 @@ namespace RockPaperScissors
                     else if (choice2 == ChoiceType.Rock)
                         return Outcome.Loss;
                     else
-                        return Outcome.Draw;                   
+                        return Outcome.Draw;
             }
 
             return Outcome.Win;
         }
-
-        [Fact]
-        public void TestOutcomeIsDrawIfChoicesSame()
-        {
-            Assert.True(Outcome.Draw == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
-        }
-
     }
 
     enum Outcome
