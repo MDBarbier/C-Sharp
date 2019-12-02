@@ -6,6 +6,13 @@ namespace RockPaperScissorsTests
 {
     public class RockPaperScissorsTests
     {
+        [Theory]
+        [InlineData(ChoiceType.Rock, ChoiceType.Scissors, Outcome.Win)]
+        public void TestOutcomeIsAsExpected(ChoiceType choice1, ChoiceType choice2, Outcome outcome)
+        {
+            Assert.True(Outcome.Win == new RockPaperScissors().DoesChoiceWin(choice1, choice2));
+        }
+
         [Fact]
         public void TestRockBeatsScissors()
         {
