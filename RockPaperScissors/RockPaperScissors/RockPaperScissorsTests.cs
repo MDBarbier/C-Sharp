@@ -4,7 +4,11 @@ using Xunit;
 namespace RockPaperScissors
 {
     public class RockPaperScissorsTests
-    {        
+    {
+        private int playerOneScore = 0;
+        private int playerTwoScore = 0;
+
+        //public bool GameState { get; private set; }
 
         [Fact]
         public void TestRockBeatsScissors()
@@ -47,6 +51,45 @@ namespace RockPaperScissors
         {
             Assert.True(Outcome.Draw == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
         }
+
+        //[Fact]
+        //public void TestIfGameIsPlaying()
+        //{
+        //    Assert.True(GameState == true);
+        //}
+
+        [Fact]
+        public void TestAssignWinIncrementsPlayerOneScore()
+        {
+            var score = playerOneScore;
+            IncrementScore(1);
+            Assert.True(score +1 == playerOneScore);
+        }
+
+        private void IncrementScore(int playerNumber)
+        {
+            if(playerNumber ==1)
+            {
+                playerOneScore++;
+            }
+            else
+            {
+                playerTwoScore++;
+            }
+        }
+
+        [Fact]
+        public void TestAssignWinIncrementsPlayerTwoScore()
+        {
+            int score = playerTwoScore;
+            IncrementScore(playerTwoScore);
+            Assert.True(playerTwoScore == score+1);
+        }
+
+        //private void SetGameInPlay()
+        //{
+        //    GameState = true;
+        //}
 
         private Outcome DoesChoiceWin(ChoiceType choice1, ChoiceType choice2)
         {
