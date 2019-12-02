@@ -9,43 +9,43 @@ namespace RockPaperScissorsTests
         [Fact]
         public void TestRockBeatsScissors()
         {
-            Assert.True(Outcome.Win == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Scissors));
+            Assert.True(Outcome.Win == new RockPaperScissors().DoesChoiceWin(ChoiceType.Rock, ChoiceType.Scissors));
         }
 
         [Fact]
         public void TestScissorsBeatsPaper()
         {
-            Assert.True(Outcome.Win == DoesChoiceWin(ChoiceType.Scissors, ChoiceType.Paper));
+            Assert.True(Outcome.Win == new RockPaperScissors().DoesChoiceWin(ChoiceType.Scissors, ChoiceType.Paper));
         }
 
         [Fact]
         public void TestPaperBeatsRock()
         {
-            Assert.True(Outcome.Win == DoesChoiceWin(ChoiceType.Paper, ChoiceType.Rock));
+            Assert.True(Outcome.Win == new RockPaperScissors().DoesChoiceWin(ChoiceType.Paper, ChoiceType.Rock));
         }
 
         [Fact]
         public void TestRockLosesToPaper()
         {
-            Assert.True(Outcome.Loss == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Paper));
+            Assert.True(Outcome.Loss == new RockPaperScissors().DoesChoiceWin(ChoiceType.Rock, ChoiceType.Paper));
         }     
         
         [Fact]
         public void TestPaperLosesToScissors()
         {
-            Assert.True(Outcome.Loss == DoesChoiceWin(ChoiceType.Paper, ChoiceType.Scissors));
+            Assert.True(Outcome.Loss == new RockPaperScissors().DoesChoiceWin(ChoiceType.Paper, ChoiceType.Scissors));
         }
 
         [Fact]
         public void TestScissorsLosesToRock()
         {
-            Assert.True(Outcome.Loss == DoesChoiceWin(ChoiceType.Scissors, ChoiceType.Rock));
+            Assert.True(Outcome.Loss == new RockPaperScissors().DoesChoiceWin(ChoiceType.Scissors, ChoiceType.Rock));
         }
 
         [Fact]
         public void TestOutcomeIsDrawWhenSameChoices()
         {
-            Assert.True(Outcome.Draw == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
+            Assert.True(Outcome.Draw == new RockPaperScissors().DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
         }
 
         [Fact]
@@ -70,73 +70,16 @@ namespace RockPaperScissorsTests
         public void TestGameWonShouldBeNoWinner()
         {
             RockPaperScissors rps = new RockPaperScissors();
-            GameWinner();
+            rps.CheckForGameWinner();
             Assert.True(rps.GetGameStatus() == 0);
         }
 
         [Fact]
         public void TestOutcomeIsDrawIfChoicesSame()
         {
-            Assert.True(Outcome.Draw == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
-        }
-
-        private void GameWinner()
-        {
-            RockPaperScissors rps = new RockPaperScissors();
-            if (rps.GetPlayerScore(1) >= 2)
-            {
-                rps.SetGameStatus(1);
-            }
-            else if (rps.GetPlayerScore(2) >= 2)
-            {
-                rps.SetGameStatus(1);
-            }
-            else
-            {
-                rps.SetGameStatus(0);
-            }
-        }
-
-        private Outcome DoesChoiceWin(ChoiceType choice1, ChoiceType choice2)
-        {
-            switch (choice1)
-            {
-                case ChoiceType.Rock:
-                    if (choice2 == ChoiceType.Scissors)
-                        return Outcome.Win;
-                    else if (choice2 == ChoiceType.Paper)
-                        return Outcome.Loss;
-                    else
-                        return Outcome.Draw;
-
-                case ChoiceType.Paper:
-                    if (choice2 == ChoiceType.Rock)
-                        return Outcome.Win;
-                    else if (choice2 == ChoiceType.Scissors)
-                        return Outcome.Loss;
-                    else
-                        return Outcome.Draw;
-
-                case ChoiceType.Scissors:
-                    if (choice2 == ChoiceType.Paper)
-                        return Outcome.Win;
-                    else if (choice2 == ChoiceType.Rock)
-                        return Outcome.Loss;
-                    else
-                        return Outcome.Draw;
-            }
-
-            return Outcome.Win;
+            Assert.True(Outcome.Draw == new RockPaperScissors().DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
         }
     }
 
-    enum Outcome
-    {
-        Win,Draw, Loss
-    }
-
-    enum ChoiceType
-    {
-        Rock,Paper,Scissors
-    }
+    
 }
