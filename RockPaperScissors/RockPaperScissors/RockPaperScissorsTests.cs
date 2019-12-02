@@ -7,6 +7,7 @@ namespace RockPaperScissors
     {
         private int playerOneScore = 0;
         private int playerTwoScore = 0;
+        private int gameStatus = 0;
 
         //public bool GameState { get; private set; }
 
@@ -83,22 +84,23 @@ namespace RockPaperScissors
         [Fact]
         public void TestGameWonShouldBeNoWinner()
         {
-            Assert.True(GameWinner() == 0);
+            GameWinner();
+            Assert.True(gameStatus == 0);
         }
 
-        private int GameWinner()
+        private void GameWinner()
         {
             if (playerOneScore >= 2)
             {
-                return 1;
+                gameStatus = 1;
             }
             else if (playerTwoScore >= 2)
             {
-                return 2;
+                gameStatus= 2;
             }
             else
             {
-                return 0;
+                gameStatus= 0;
             }
         }
 
