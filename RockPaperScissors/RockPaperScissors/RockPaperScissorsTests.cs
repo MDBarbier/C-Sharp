@@ -52,12 +52,6 @@ namespace RockPaperScissors
             Assert.True(Outcome.Draw == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
         }
 
-        //[Fact]
-        //public void TestIfGameIsPlaying()
-        //{
-        //    Assert.True(GameState == true);
-        //}
-
         [Fact]
         public void TestAssignWinIncrementsPlayerOneScore()
         {
@@ -86,10 +80,27 @@ namespace RockPaperScissors
             Assert.True(playerTwoScore == score+1);
         }
 
-        //private void SetGameInPlay()
-        //{
-        //    GameState = true;
-        //}
+        [Fact]
+        public void TestGameWonShouldBeNoWinner()
+        {
+            Assert.True(GameWinner() == 0);
+        }
+
+        private int GameWinner()
+        {
+            if (playerOneScore >= 2)
+            {
+                return 1;
+            }
+            else if (playerTwoScore >= 2)
+            {
+                return 2;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
         private Outcome DoesChoiceWin(ChoiceType choice1, ChoiceType choice2)
         {
