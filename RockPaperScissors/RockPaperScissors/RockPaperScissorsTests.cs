@@ -4,7 +4,8 @@ using Xunit;
 namespace RockPaperScissors
 {
     public class RockPaperScissorsTests
-    {
+    {        
+
         [Fact]
         public void TestRockBeatsScissors()
         {
@@ -21,6 +22,30 @@ namespace RockPaperScissors
         public void TestPaperBeatsRock()
         {
             Assert.True(Outcome.Win == DoesChoiceWin(ChoiceType.Paper, ChoiceType.Rock));
+        }
+
+        [Fact]
+        public void TestRockLosesToPaper()
+        {
+            Assert.True(Outcome.Loss == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Paper));
+        }     
+        
+        [Fact]
+        public void TestPaperLosesToScissors()
+        {
+            Assert.True(Outcome.Loss == DoesChoiceWin(ChoiceType.Paper, ChoiceType.Scissors));
+        }
+
+        [Fact]
+        public void TestScissorsLosesToRock()
+        {
+            Assert.True(Outcome.Loss == DoesChoiceWin(ChoiceType.Scissors, ChoiceType.Rock));
+        }
+
+        [Fact]
+        public void TestOutcomeIsDrawWhenSameChoices()
+        {
+            Assert.True(Outcome.Draw == DoesChoiceWin(ChoiceType.Rock, ChoiceType.Rock));
         }
 
         private Outcome DoesChoiceWin(ChoiceType choice1, ChoiceType choice2)
