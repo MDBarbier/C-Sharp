@@ -44,8 +44,8 @@ namespace XUnitTestProject1
             Console.WriteLine(mock.Object.Name);
 
             // Verify that the mock was invoked
-            mock.VerifyGet(x => x.Name, Times.AtLeast(1));           
-
+            mock.VerifyGet(x => x.Name, Times.AtLeast(1));
+            
             CardParser cp = new CardParser(mock.Object);
             var textToOutput = cp.OutputCard();
 
@@ -62,6 +62,7 @@ namespace XUnitTestProject1
 
             Assert.True(mock.Object.AssignCombatDamage(5));
             Assert.False(mock.Object.AssignCombatDamage(4));
+            mock.Verify(x => x.AssignCombatDamage(5), Times.Once);
         }
 
         [Theory]
