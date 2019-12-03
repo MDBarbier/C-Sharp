@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CDSystem
+﻿namespace CDSystem
 {
     public class CD
     {
         public int Stock { get; set; }
         public int Rating { get; set; }
         public string Review { get; set; }
+        public string Name { get; set; }       
 
-        public void Buy(int amount, IPaymentSystem paymentSystem)
+        public void LeaveReview(int rating, string review, Warehouse warehouse)
         {
-            if (Stock > 0 && ((Stock - amount) > 0) && paymentSystem.ProcessPayment())
-                Stock--;
+            if (warehouse.GetCdFromInventory(Name) != null)
+            {
+                Rating = rating;
+                Review = review;
+            }
         }
     }
 }
