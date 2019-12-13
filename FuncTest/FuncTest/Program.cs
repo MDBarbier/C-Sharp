@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace FuncTest
 {
@@ -20,7 +21,7 @@ namespace FuncTest
             int result = add(10, 10);
             Console.WriteLine(result);
 
-            //Here we use an anonymous delegate to avoid having to pre-specify a methof
+            //Here we use an anonymous delegate to avoid having to pre-specify a method
             Func<int> getRandomNumber = delegate ()
             {
                 Random rnd = new Random();
@@ -39,7 +40,27 @@ namespace FuncTest
             {
                 Console.WriteLine(i);
             };
-            printActionDel(9999);            
+            printActionDel(9999);
+
+            //Using a Func and a lambda 
+            Func<int, int> square = x => x * x;
+            Console.WriteLine(square(5));
+            // Output:
+            // 25
+
+
+            /*This example shows the difference in syntax between using a delegate and using lambdas */
+            // anonymous delegate
+            var evens1 = Enumerable
+                .Range(1, 100)
+                .Where(delegate (int x) { return (x % 2) == 0; })
+                .ToList();
+
+            // lambda expression
+            var evens2 = Enumerable
+                .Range(1, 100)
+                .Where(x => (x % 2) == 0)
+                .ToList();
         }
     }
 }
