@@ -1,7 +1,6 @@
-﻿using System;
-using System.Runtime.Remoting;
+﻿using AutoFixture;
 using Dynamitey;
-using Dynamitey.DynamicObjects;
+using System;
 
 namespace ReallyLateBindingDemo
 {
@@ -10,45 +9,35 @@ namespace ReallyLateBindingDemo
         static void Main(string[] args)
         {
             //Arrange test data
-            dynamic d1, d2, d3, d4, d5;
-            SetupData(out d1, out d2, out d3, out d4, out d5);
+            Fixture fixture = new Fixture();
+            Person p1 = fixture.Create<Person>();
+            Person p2 = fixture.Create<Person>();
+            Person p3 = fixture.Create<Person>();
+            Person p4 = fixture.Create<Person>();
+            Person p5 = fixture.Create<Person>();
 
-            //This is just confirming the delegate in the class is functioning
-            Console.WriteLine(DoStuff(Executor1, "hello", "world"));
-            Console.WriteLine(DoStuff(Executor2, "hello", "world"));
+            dynamic d0 = p1;
+            dynamic d1 = p2;
+            dynamic d2 = p3;
+            dynamic d3 = p4;
+            dynamic d4 = p5;
+            dynamic d5 = p1.ShallowCopy(); //uses the same base data as d1 to confirm we get a positive match
+           
+            dynamic[] data = new dynamic[] { d0, d1, d2, d3, d4, d5 };
 
             //Perform our comparisons
-            Console.WriteLine($"Dynamic {nameof(d1)} and {nameof(d2)} equal? {CompareDynamics(d1, d2)}");
-            Console.WriteLine($"Dynamic {nameof(d1)} and {nameof(d3)} equal? {CompareDynamics(d1, d3)}");
-            Console.WriteLine($"Dynamic {nameof(d2)} and {nameof(d4)} equal? {CompareDynamics(d2, d4)}");
-            Console.WriteLine($"Dynamic {nameof(d3)} and {nameof(d5)} equal? {CompareDynamics(d3, d5)}");
+            for (int i = 0; i < data.Length; i++)
+            {
+                for (int j = 0; j < data.Length; j++)
+                {
+                    if (i == j)
+                        continue;
+
+                    Console.WriteLine($"Dynamics d{i} and d{j} equal? {CompareDynamics(data[i], data[j])}");
+                }
+            }
         }
-
-        private static void SetupData(out dynamic d1, out dynamic d2, out dynamic d3, out dynamic d4, out dynamic d5)
-        {
-            Guid g1 = Guid.NewGuid();
-            Guid g2 = Guid.NewGuid();
-
-            Address a1 = new Address() { Address1 = "1 Main Street", Telephone = 1234 };
-            Address a2 = new Address() { Address1 = "1 Main Street", Telephone = 1234 };
-            Address a3 = new Address() { Address1 = "2 Main Street", Telephone = 1234 };
-            Address a3a = new Address() { Address1 = "2 Main Street", Telephone = 1234 };
-            Address a4 = new Address() { Address1 = "1 Main Street", Telephone = 12345 };
-
-            var now = DateTime.Now;
-            Person p1 = new Person() { Name = "Ms A", Id = 1, Guid = g1, Address = a1, Birthday = now, Savings = 1.99f, FavouriteFoods = new string[] { "Burgers", "Chips" } };
-            Person p2 = new Person() { Name = "Ms B", Id = 2, Guid = g2, Address = a2, Birthday = now, Savings = 1.99f, FavouriteFoods = new string[] { "Burgers", "Chips" } };
-            Person p3 = new Person() { Name = "Ms A", Id = 1, Guid = g1, Address = a3, Birthday = now, Savings = 1.99f, FavouriteFoods = new string[] { "Burgers", "Chips" } };
-            Person p4 = new Person() { Name = "Ms B", Id = 2, Guid = g2, Address = a4, Birthday = now, Savings = 1.99f, FavouriteFoods = new string[] { "Burgers", "Chips" } };
-            Person p5 = new Person() { Name = "Ms A", Id = 1, Guid = g1, Address = a3a, Birthday = now, Savings = 1.99f, FavouriteFoods = new string[] { "Burgers", "Chips" } };
-
-            d1 = p1;
-            d2 = p2;
-            d3 = p3;
-            d4 = p4;
-            d5 = p5;
-        }
-
+        
         private static bool CompareDynamics(dynamic d1, dynamic d2)
         {
             var props = Dynamic.GetMemberNames(d1);
@@ -109,21 +98,7 @@ namespace ReallyLateBindingDemo
             }
 
             return identical;
-        }
-
-        public static string DoStuff(Person.PersonDelegate theDelegatedMethod, string m1, string m2)
-        {
-            return theDelegatedMethod(m1, m2);
-        }
-
-        public static string Executor1(string p1, string p2)
-        {
-            return p1 + p2;
-        }
-        public static string Executor2(string p1, string p2)
-        {
-            return p1 + p1 + p2 + p2;
-        }
+        }       
 
         private static bool CompareArrays(dynamic value1, dynamic value2)
         {
@@ -191,17 +166,34 @@ namespace ReallyLateBindingDemo
     {
         //Value types
         public int Id { get; set; }
-        public float Savings { get; set; }
+        public float Age { get; set; }
+        public char FavouriteLetter { get; set; }
         public DateTime Birthday { get; set; }
         public Guid Guid { get; set; }
-
+        public decimal Savings { get; set; }
+        public long FavouriteNumber { get; set; }
+        public bool AfraidOfGhosts { get; set; }
+        public TimeSpan ActiveTime { get; set; }
+        public FavouriteSharkMovie FavouriteSharkMovie { get; set; }
 
         //Reference types
         public string Name { get; set; }
         public Address Address { get; set; }
         public string[] FavouriteFoods { get; set; }
 
+        //although delegate has been included as a reference type it doesn't get compared because you never assign a value to it
         public delegate string PersonDelegate(string message1, string message2);
+
+        public Person ShallowCopy()
+        {
+            return (Person)this.MemberwiseClone();
+        }
+
+    }
+
+    public enum FavouriteSharkMovie
+    {
+        Jaws,Sharknado,Jaws2
     }
 
     public class Address
