@@ -9,9 +9,15 @@ namespace ReallyLateBindingDemo
     {
         static void Main(string[] args)
         {
+            //Arrange test data
             dynamic d1, d2, d3, d4, d5;
             SetupData(out d1, out d2, out d3, out d4, out d5);
 
+            //This is just confirming the delegate in the class is functioning
+            Console.WriteLine(DoStuff(Executor1, "hello", "world"));
+            Console.WriteLine(DoStuff(Executor2, "hello", "world"));
+
+            //Perform our comparisons
             Console.WriteLine($"Dynamic {nameof(d1)} and {nameof(d2)} equal? {CompareDynamics(d1, d2)}");
             Console.WriteLine($"Dynamic {nameof(d1)} and {nameof(d3)} equal? {CompareDynamics(d1, d3)}");
             Console.WriteLine($"Dynamic {nameof(d2)} and {nameof(d4)} equal? {CompareDynamics(d2, d4)}");
@@ -46,7 +52,7 @@ namespace ReallyLateBindingDemo
         private static bool CompareDynamics(dynamic d1, dynamic d2)
         {
             var props = Dynamic.GetMemberNames(d1);
-            bool identical = true;           
+            bool identical = true;
 
             foreach (var prop in props)
             {
@@ -105,9 +111,23 @@ namespace ReallyLateBindingDemo
             return identical;
         }
 
+        public static string DoStuff(Person.PersonDelegate theDelegatedMethod, string m1, string m2)
+        {
+            return theDelegatedMethod(m1, m2);
+        }
+
+        public static string Executor1(string p1, string p2)
+        {
+            return p1 + p2;
+        }
+        public static string Executor2(string p1, string p2)
+        {
+            return p1 + p1 + p2 + p2;
+        }
+
         private static bool CompareArrays(dynamic value1, dynamic value2)
         {
-            bool identical = true;            
+            bool identical = true;
 
             for (int i = 0; i < value1.Length; i++)
             {
@@ -169,13 +189,19 @@ namespace ReallyLateBindingDemo
 
     public class Person
     {
+        //Value types
         public int Id { get; set; }
         public float Savings { get; set; }
         public DateTime Birthday { get; set; }
-        public string Name { get; set; }
         public Guid Guid { get; set; }
+
+
+        //Reference types
+        public string Name { get; set; }
         public Address Address { get; set; }
         public string[] FavouriteFoods { get; set; }
+
+        public delegate string PersonDelegate(string message1, string message2);
     }
 
     public class Address
