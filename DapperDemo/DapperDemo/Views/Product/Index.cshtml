@@ -1,0 +1,14 @@
+﻿@model List<DapperDemo.ProductMaster.Product>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <h1>Dapper demo</h1>
+
+    <ul>
+        @foreach (var product in Model)
+        {
+        <li>@product.Name</li>
+        }
+    </ul>
+}
