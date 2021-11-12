@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using dotnet6consoleappdemo;
+using System.Diagnostics;
 
 #region Main
 
@@ -6,6 +7,10 @@ var stopwatch = new Stopwatch();
 stopwatch.Start();
 await LongRunningProcess(3000);
 Console.WriteLine(GetMessage("Matt"));
+
+ExtraClass extraClass = new ExtraClass();
+Console.WriteLine(extraClass.GetMessage());
+
 Console.WriteLine($"Finished in {stopwatch.Elapsed}");
 stopwatch.Stop();
 
